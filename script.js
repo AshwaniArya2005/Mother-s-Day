@@ -20,10 +20,36 @@ const shareBtn = document.querySelector('.share-btn');
 const printBtn = document.querySelector('.print-btn');
 const personalMessage = document.getElementById('personalMessage');
 
+let selectedFlower = null; // Track the currently selected flower
+
 // Add event listeners
 confirmBtn.addEventListener('click', arrangeBouquet);
 updateConfirmButton(); // Initial button state
 
+// Function to handle flower placement
+function placeFlower(x, y, sourceSrc) {
+    const newFlower = document.createElement('img');
+    newFlower.src = sourceSrc;
+    newFlower.classList.add('flower');
+    newFlower.style.position = 'absolute';
+    
+    // Calculate position relative to the canvas
+    const rect = bouquetCanvas.getBoundingClientRect();
+    const posX = x - rect.left;
+    const posY = y - rect.top;
+    
+    // Center the flower on the touch/click point
+    newFlower.style.left = `${posX - 30}px`;
+    newFlower.style.top = `${posY - 30}px`;
+    
+    // Make placed flowers non-draggable
+    newFlower.draggable = false;
+    
+    bouquetCanvas.appendChild(newFlower);
+    updateConfirmButton();
+}
+
+// Desktop drag and drop handlers
 flowers.forEach(flower => {
     flower.addEventListener('dragstart', (e) => {
         e.dataTransfer.setData('text/plain', e.target.src);
@@ -33,6 +59,28 @@ flowers.forEach(flower => {
     flower.addEventListener('dragend', (e) => {
         e.target.style.opacity = '1';
     });
+
+    // Touch handlers for mobile
+    flower.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        selectedFlower = e.target;
+        e.target.style.opacity = '0.5';
+    }, { passive: false });
+
+    flower.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        if (selectedFlower) {
+            selectedFlower.style.opacity = '1';
+            const touch = e.changedTouches[0];
+            const elementAtTouch = document.elementFromPoint(touch.clientX, touch.clientY);
+            
+            // Check if touch ended over the bouquet canvas
+            if (bouquetCanvas.contains(elementAtTouch)) {
+                placeFlower(touch.clientX, touch.clientY, selectedFlower.src);
+            }
+        }
+        selectedFlower = null;
+    }, { passive: false });
 });
 
 bouquetCanvas.addEventListener('dragover', (e) => {
@@ -43,26 +91,15 @@ bouquetCanvas.addEventListener('dragover', (e) => {
 bouquetCanvas.addEventListener('drop', (e) => {
     e.preventDefault();
     const flowerSrc = e.dataTransfer.getData('text/plain');
-    const newFlower = document.createElement('img');
-    newFlower.src = flowerSrc;
-    newFlower.classList.add('flower');
-    newFlower.style.position = 'absolute';
-    
-    // Calculate position relative to the canvas
-    const rect = bouquetCanvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    
-    // Center the flower on the cursor
-    newFlower.style.left = `${x - 30}px`;
-    newFlower.style.top = `${y - 30}px`;
-    
-    // Make placed flowers non-draggable
-    newFlower.draggable = false;
-    
-    bouquetCanvas.appendChild(newFlower);
-    updateConfirmButton();
+    placeFlower(e.clientX, e.clientY, flowerSrc);
 });
+
+// Add touch-move prevention to avoid page scrolling while dragging flowers
+document.addEventListener('touchmove', (e) => {
+    if (selectedFlower) {
+        e.preventDefault();
+    }
+}, { passive: false });
 
 // Clear bouquet functionality
 clearBtn.addEventListener('click', () => {
