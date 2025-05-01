@@ -35,12 +35,20 @@ function placeFlower(x, y, sourceSrc) {
     
     // Calculate position relative to the canvas
     const rect = bouquetCanvas.getBoundingClientRect();
-    const posX = x - rect.left;
-    const posY = y - rect.top;
+    let posX = x - rect.left;
+    let posY = y - rect.top;
+    
+    // Set flower dimensions (adjust these values based on your flower images)
+    const flowerSize = 60; // Assuming flower is 60x60 pixels
+    
+    // Add boundary checking
+    // Ensure the flower stays within the canvas bounds
+    posX = Math.max(flowerSize/2, Math.min(rect.width - flowerSize/2, posX));
+    posY = Math.max(flowerSize/2, Math.min(rect.height - flowerSize/2, posY));
     
     // Center the flower on the touch/click point
-    newFlower.style.left = `${posX - 30}px`;
-    newFlower.style.top = `${posY - 30}px`;
+    newFlower.style.left = `${posX - flowerSize/2}px`;
+    newFlower.style.top = `${posY - flowerSize/2}px`;
     
     // Make placed flowers non-draggable
     newFlower.draggable = false;
