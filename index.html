@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Mother's Day!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-content">
+            <div class="logo">🌸 Mother's Day</div>
+            <div class="countdown-timer">
+                <div class="countdown-item">
+                    <span id="days">00</span>
+                    <span class="label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours">00</span>
+                    <span class="label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes">00</span>
+                    <span class="label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds">00</span>
+                    <span class="label">Seconds</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Happy Mother's Day!</h1>
+        
+        <!-- Interactive Card Section -->
+        <section class="card-section">
+            <div class="mother-card">
+                <div class="card-front">
+                    <h2>Click to Open ❤️</h2>
+                </div>
+                <div class="card-inside">
+                    <h3>Dear Mom,</h3>
+                    <p>Thank you for being the most amazing mother in the world. Your love, dedication, and strength inspire me every day.</p>
+                    <p>With all my love,</p>
+                    <p>Your Child</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Virtual Bouquet Builder -->
+        <section class="bouquet-section">
+            <h2>Create a Virtual Bouquet</h2>
+            <div class="flower-palette">
+                <img src="images/rose.svg" class="flower" draggable="true" data-flower="rose" alt="Rose">
+                <img src="images/tulip.svg" class="flower" draggable="true" data-flower="tulip" alt="Tulip">
+                <img src="images/daisy.svg" class="flower" draggable="true" data-flower="daisy" alt="Daisy">
+                <img src="images/lily.svg" class="flower" draggable="true" data-flower="lily" alt="Lily">
+            </div>
+            <div class="bouquet-builder">
+                <div class="bouquet-instructions">
+                    <p>Drag and drop flowers to create your bouquet</p>
+                    <div class="bouquet-buttons">
+                        <button class="clear-btn">Clear Bouquet</button>
+                        <button class="confirm-btn">Confirm Bouquet 💐</button>
+                    </div>
+                </div>
+                <div class="bouquet-canvas" id="bouquetCanvas">
+                    <div class="wrapping-paper">
+                        <div class="wrap-left"></div>
+                        <div class="wrap-right"></div>
+                    </div>
+                    <div class="vase"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Thank You Note Generator -->
+        <section class="note-section">
+            <h2>Generate a Thank You Note</h2>
+            <div class="note-container">
+                <p id="thank-you-note">Click the button below to generate a heartfelt message for your mom!</p>
+            </div>
+            <button id="generate-note" class="generate-btn">Generate Message</button>
+        </section>
+    </div>
+
+    <!-- Final Bouquet Modal -->
+    <div class="modal" id="bouquetModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Your Beautiful Bouquet is Ready! 💐</h2>
+            <div class="final-bouquet-container">
+                <div id="finalBouquetImage"></div>
+                <div class="message-area">
+                    <textarea id="personalMessage" placeholder="Add a personal message for mom..." rows="4"></textarea>
+                </div>
+            </div>
+            <div class="bouquet-actions">
+                <button class="download-btn">Download as Image 📥</button>
+                <button class="share-btn">Share 🔗</button>
+                <button class="print-btn">Print Card 🖨️</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

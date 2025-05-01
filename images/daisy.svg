@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <!-- Petals -->
+    <path d="M50 20C45 20 40 25 40 30C40 35 45 40 50 40C55 40 60 35 60 30C60 25 55 20 50 20Z" fill="white"/>
+    <path d="M35 35C30 35 25 40 25 45C25 50 30 55 35 55C40 55 45 50 45 45C45 40 40 35 35 35Z" fill="white"/>
+    <path d="M65 35C60 35 55 40 55 45C55 50 60 55 65 55C70 55 75 50 75 45C75 40 70 35 65 35Z" fill="white"/>
+    <path d="M30 50C25 50 20 55 20 60C20 65 25 70 30 70C35 70 40 65 40 60C40 55 35 50 30 50Z" fill="white"/>
+    <path d="M70 50C65 50 60 55 60 60C60 65 65 70 70 70C75 70 80 65 80 60C80 55 75 50 70 50Z" fill="white"/>
+    <path d="M35 65C30 65 25 70 25 75C25 80 30 85 35 85C40 85 45 80 45 75C45 70 40 65 35 65Z" fill="white"/>
+    <path d="M65 65C60 65 55 70 55 75C55 80 60 85 65 85C70 85 75 80 75 75C75 70 70 65 65 65Z" fill="white"/>
+    <path d="M50 80C45 80 40 85 40 90C40 95 45 100 50 100C55 100 60 95 60 90C60 85 55 80 50 80Z" fill="white"/>
+    
+    <!-- Center -->
+    <circle cx="50" cy="50" r="15" fill="#ffeb3b"/>
+    <circle cx="50" cy="50" r="12" fill="#fdd835"/>
+    <circle cx="50" cy="50" r="8" fill="#fbc02d"/>
+    
+    <!-- Stem and Leaves -->
+    <path d="M48 85L52 85L50 90L48 85Z" fill="#4caf50"/>
+    <path d="M50 87C40 87 35 90 40 93C45 96 55 93 50 87Z" fill="#66bb6a"/>
+    <path d="M50 89C60 89 65 92 60 95C55 98 45 95 50 89Z" fill="#66bb6a"/>
+</svg> 

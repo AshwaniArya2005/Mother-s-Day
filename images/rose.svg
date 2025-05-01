@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <!-- Outer Petals -->
+    <path d="M50 15C40 15 30 25 35 40C40 55 45 60 50 60C55 60 60 55 65 40C70 25 60 15 50 15Z" fill="#ff1744"/>
+    <path d="M35 30C25 35 25 45 30 55C35 65 45 65 50 60C55 55 55 50 50 40C45 30 40 28 35 30Z" fill="#ff4081"/>
+    <path d="M65 30C75 35 75 45 70 55C65 65 55 65 50 60C45 55 45 50 50 40C55 30 60 28 65 30Z" fill="#ff4081"/>
+    
+    <!-- Inner Petals -->
+    <path d="M50 25C45 25 40 30 42 40C44 50 47 52 50 52C53 52 56 50 58 40C60 30 55 25 50 25Z" fill="#ff80ab"/>
+    <path d="M42 35C37 37 37 42 40 48C43 54 47 54 50 52C53 50 53 47 50 42C47 37 44 34 42 35Z" fill="#ff80ab"/>
+    <path d="M58 35C63 37 63 42 60 48C57 54 53 54 50 52C47 50 47 47 50 42C53 37 56 34 58 35Z" fill="#ff80ab"/>
+    
+    <!-- Center -->
+    <circle cx="50" cy="40" r="5" fill="#d50000"/>
+    
+    <!-- Stem and Leaves -->
+    <path d="M48 60L52 60L50 90L48 60Z" fill="#4caf50"/>
+    <path d="M50 70C40 70 35 75 40 80C45 85 55 80 50 70Z" fill="#66bb6a"/>
+    <path d="M50 75C60 75 65 80 60 85C55 90 45 85 50 75Z" fill="#66bb6a"/>
+</svg> 
