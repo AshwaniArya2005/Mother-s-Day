@@ -57,16 +57,8 @@ bouquetCanvas.addEventListener('drop', (e) => {
     newFlower.style.left = `${x - 30}px`;
     newFlower.style.top = `${y - 30}px`;
     
-    // Add draggable functionality to placed flowers
-    newFlower.draggable = true;
-    newFlower.addEventListener('dragstart', (e) => {
-        e.dataTransfer.setData('text/plain', 'move');
-        e.target.style.opacity = '0.5';
-    });
-    
-    newFlower.addEventListener('dragend', (e) => {
-        e.target.style.opacity = '1';
-    });
+    // Make placed flowers non-draggable
+    newFlower.draggable = false;
     
     bouquetCanvas.appendChild(newFlower);
     updateConfirmButton();
